@@ -1,4 +1,4 @@
-package com.linfsoft.authenticationservice;
+package authenticationservice;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

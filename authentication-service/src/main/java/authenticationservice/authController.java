@@ -1,4 +1,4 @@
-package com.linfsoft.authenticationservice;
+package authenticationservice;
 
 
 import lombok.RequiredArgsConstructor;
@@ -67,6 +67,15 @@ public class authController {
     }
 
 
+    //changer mdp
+
+    @PostMapping("/changerMDP")
+    public String changerMDP(@RequestBody ChangerRequest changerRequest){
+
+        System.out.println("mail: " +changerRequest.getEmail());
+       return as.changerMDP(changerRequest);
+      // return as.changerMDP(email,mdp,newMDP);
+    }
 
 
 

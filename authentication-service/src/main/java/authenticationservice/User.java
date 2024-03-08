@@ -1,4 +1,4 @@
-package com.linfsoft.authenticationservice;
+package authenticationservice;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -106,6 +106,7 @@ public class User implements UserDetails {
     public boolean isEnabled() {
         return true;
     }
+
 
 
 }

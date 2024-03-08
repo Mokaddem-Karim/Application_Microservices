@@ -1,4 +1,4 @@
-package com.linfsoft.authenticationservice;
+package authenticationservice;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;

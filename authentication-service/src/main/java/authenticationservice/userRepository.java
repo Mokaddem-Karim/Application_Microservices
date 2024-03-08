@@ -1,4 +1,4 @@
-package com.linfsoft.authenticationservice;
+package authenticationservice;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

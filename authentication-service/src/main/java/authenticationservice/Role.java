@@ -1,4 +1,4 @@
-package com.linfsoft.authenticationservice ;
+package authenticationservice;
 
 public enum Role {
     USER,

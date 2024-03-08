@@ -1,10 +1,14 @@
-package com.linfsoft.authenticationservice;
+package authenticationservice;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+
+import java.util.ArrayList;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -22,6 +26,7 @@ public class authService {
 
     //inject manager
     private final AuthenticationManager authenticationManager;
+
 
    /*
     //repo of candidat
@@ -125,8 +130,32 @@ public class authService {
     }
 
 
+    //changer mdp
+    public String changerMDP(ChangerRequest changerRequest){
+        Optional<User> user=repository.findByEmail(changerRequest.getEmail());
+
+        if(user.isPresent()){
+            User u1=user.get();
+            if(passwordMatches(changerRequest.getEmail(),changerRequest.getMdp())) {
+                u1.setPass(passwordEncoder.encode(changerRequest.getNewMDP()));
+                repository.save(u1);
+                return "user found" + "pass changer from "+changerRequest.getMdp()+" to "+changerRequest.getNewMDP();
+            }
+            else {
+                return "pass not compatible";
+            }
+
+        }else {
+            return "uset not found !!";
+        }
 
 
+    }
 
+
+    private boolean passwordMatches(String email, String password) {
+        Optional<User> user = repository.findByEmail(email);
+        return passwordEncoder.matches(password, user.get().getPassword());
+    }
 
 }
