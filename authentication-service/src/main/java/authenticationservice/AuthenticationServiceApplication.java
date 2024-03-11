@@ -18,6 +18,9 @@ public class AuthenticationServiceApplication {
     }
 
 
+
+
+
     // corsConfig
     @Configuration
     public class CorsConfig {
@@ -33,8 +36,8 @@ public class AuthenticationServiceApplication {
             source.registerCorsConfiguration("/**", config);
             return new CorsFilter(source);
         }
+      }
 
 
-    }
 
 }

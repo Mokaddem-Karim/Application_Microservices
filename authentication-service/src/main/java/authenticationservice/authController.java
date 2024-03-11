@@ -1,12 +1,11 @@
 package authenticationservice;
 
 
+import jakarta.mail.MessagingException;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/v1/auth")
@@ -68,8 +67,7 @@ public class authController {
     }
 
 
-    //changer mdp
-
+    //changer mdp manually
     @PostMapping("/changerMDP")
     public String changerMDP(@RequestBody ChangerRequest changerRequest){
 
@@ -78,7 +76,18 @@ public class authController {
       // return as.changerMDP(email,mdp,newMDP);
     }
 
+    //reset password  via mail
 
+    @PutMapping("/forgot-password")
+    public String forgotPass(@RequestParam String email) throws MessagingException {
+        return as.forgotPassword(email);
+    }
+
+
+    @PostMapping("/set-password")
+    public String setPass(@RequestBody resetReq r) throws MessagingException {
+        return as.setPass(r);
+    }
 
 
 

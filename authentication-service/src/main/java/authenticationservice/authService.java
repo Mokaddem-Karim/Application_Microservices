@@ -1,5 +1,6 @@
 package authenticationservice;
 
+import jakarta.mail.MessagingException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -37,6 +38,9 @@ public class authService {
     private final electeurRepo elecRepository;
 
    */
+
+    //emailUtil functions
+    private final emailUtil eu;
 
     public AuthenticationResponse register(RegisterRequest request) {
 
@@ -157,6 +161,30 @@ public class authService {
     private boolean passwordMatches(String email, String password) {
         Optional<User> user = repository.findByEmail(email);
         return passwordEncoder.matches(password, user.get().getPassword());
+    }
+
+    public String forgotPassword(String email) throws MessagingException {
+        User u1=repository.findByEmail(email).orElseThrow(
+                ()-> new RuntimeException("user not found with this email: "+email)
+        );
+        try {
+            eu.sendSetPasswordEmail(email);
+        }catch (MessagingException e){
+            throw new RuntimeException("unable to set email !");
+        }
+        return "Mail envoyer, verifier inbox !";
+    }
+
+    public String setPass(resetReq r) throws MessagingException {
+        String email=r.getEmail();
+        String pass=r.getNewPass();
+        User u1=repository.findByEmail(email).orElseThrow(
+                ()-> new RuntimeException("user not found with this email: "+email)
+        );
+
+           u1.setPass(passwordEncoder.encode(pass) );
+           repository.save(u1);
+        return "Succes, mot de passe changer !";
     }
 
 }
