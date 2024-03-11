@@ -36,7 +36,7 @@ public class emailUtil {
         mimeMessageHelper.setSubject("Mail de réinitialisation de mot de passe");
         mimeMessageHelper.setText("""
         <div>
-          <a href="http://http://localhost:4200/setNpass" target="_blank">cliquer ce lien pour changer votre mot de passe</a> 
+          <a href="http://localhost:4200/setNpass" target="_blank">cliquer ce lien pour changer votre mot de passe</a> 
         </div>
         """.formatted(email), true);
 
