@@ -15,9 +15,9 @@ public class authController {
 
     private final authService as;
 
-    /*
-    private final candidatServiceImpl cs;
 
+    private final apprenantServiceImpl apps;
+/*
     private final electeurServiceImpl es ;
 */
     //pour admin
@@ -27,14 +27,14 @@ public class authController {
     }
 
 
-    /*
-    //register pour candidat and verify that a candidat already have an account or not
-    @PostMapping("/registerCandidat")
-    public ResponseEntity<AuthenticationResponse> registerCandidat(@RequestBody registerRequestCandidat request){
-        Candidat c=null;
-        c=cs.findCandidatByEmail(request.getEmail());
-        if (c==null) {
-            return ResponseEntity.ok(as.registerCandidat(request));
+
+    //register pour apprenant and verify that a apprenant already have an account or not
+    @PostMapping("/registerApprenant")
+    public ResponseEntity<AuthenticationResponse> registerApprenant(@RequestBody registerRequestApprenant request){
+        Apprenant a=null;
+        a=apps.findAppByEmail(request.getEmail());
+        if (a==null) {
+            return ResponseEntity.ok(as.registerApprenant(request));
         }else {  System.out.println("mail existant");
                  return null; }
 
@@ -42,6 +42,7 @@ public class authController {
      //return as.registerCandidat(request); pour verifier le candidat filled
     }
 
+    /*
     //register pour electeur
     @PostMapping("/registerElecteur")
     public ResponseEntity<AuthenticationResponse> registerElecteur(@RequestBody registerRequestElecteur request){

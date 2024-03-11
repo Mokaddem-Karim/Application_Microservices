@@ -28,10 +28,11 @@ public class authService {
     private final AuthenticationManager authenticationManager;
 
 
-   /*
-    //repo of candidat
-    private final candidatRepo canRepository;
 
+    //repo of apprenant
+    private final apprenantRepo appRepository;
+
+    /*
     //repo of electeur
     private final electeurRepo elecRepository;
 
@@ -53,25 +54,24 @@ public class authService {
     }
 
 
-    /*
-    //inscription candidat
-    public AuthenticationResponse registerCandidat(registerRequestCandidat request) {
 
-        Candidat c =new Candidat();
-        c.setCin(request.getCin());
-        c.setNom(request.getNom());
-        c.setPrenom(request.getPrenom());
-        c.setEmail(request.getEmail());
-        c.setGroupe(request.getGroupe());
-        c.setPassword(passwordEncoder.encode(request.getPassword()));
-        c.setDateN(request.getDateN());
-        c.setAnnonceV(request.getAnnonceV());
-        c.setImgUrl(request.getImgUrl());
-        canRepository.save(c);  //save sans autorisation admin
+    //inscription candidat
+    public AuthenticationResponse registerApprenant(registerRequestApprenant request) {
+
+        Apprenant a =new Apprenant();
+        a.setMatricule(request.getMatricule());
+        a.setNom(request.getNom());
+        a.setPrenom(request.getPrenom());
+        a.setEmail(request.getEmail());
+        a.setPassword(passwordEncoder.encode(request.getPassword()));
+        a.setDateN(request.getDateN());
+        a.setTel(request.getTel());
+        a.setAdresse(request.getAdresse());
+        appRepository.save(a);  //save sans autorisation admin
 
         var user=User.builder()
-                .firstName(request.getNom())
-                .lastName(request.getPrenom())
+                .firstName(request.getPrenom())
+                .lastName(request.getNom())
                 .email(request.getEmail())
                 .pass(passwordEncoder.encode(request.getPassword()))
                 .role(Role.USER)
@@ -84,6 +84,7 @@ public class authService {
     }
 
 
+    /*
     //inscription electeur
     public AuthenticationResponse registerElecteur(registerRequestElecteur request) {
 
