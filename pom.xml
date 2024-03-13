@@ -17,8 +17,8 @@
     <modules>
 
         <module>authentication-service</module>
-        <module>tttt</module>
         <module>eurekaServer</module>
+        <module>gestionFormation-service</module>
     </modules>
 
     <properties>
