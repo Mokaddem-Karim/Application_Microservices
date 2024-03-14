@@ -31,7 +31,7 @@ public class formateurController {
         return fs.findForByEmail(mail) ;
     }
 
-    @GetMapping("/getAllApp")
+    @GetMapping("/getAllFor")
     public List<Formateur> getAllFor(){
         return fs.getAllFormateur();
     }
