@@ -41,6 +41,7 @@ public class authController {
     public ResponseEntity<AuthenticationResponse> registerApprenant(@RequestBody registerRequestApprenant request){
         Apprenant a=null;
         a=apps.findAppByEmail(request.getEmail());
+        System.out.println("mail existe: "+a);
         if (a==null) {
             return ResponseEntity.ok(as.registerApprenant(request));
         }else {  System.out.println("mail existant");

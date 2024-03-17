@@ -9,7 +9,7 @@ import java.util.Date;
 
 
 @Entity
-@Table(name="respInventaire")
+@Table(name="Apprenant")
 public class Apprenant implements UserDetails {
 
     @Id
@@ -184,7 +184,7 @@ public class Apprenant implements UserDetails {
 
     @Override
     public String toString() {
-        return "respInventaire{" +
+        return "apprenant{" +
                 "id=" + id +
                 ", matricule=" + matricule +
                 ", nom='" + nom + '\'' +
