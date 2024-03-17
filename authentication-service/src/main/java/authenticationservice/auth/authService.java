@@ -19,6 +19,8 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import authenticationservice.respInventaire.*;
+
 import java.util.Optional;
 
 @Service
@@ -47,6 +49,9 @@ public class authService {
     //repo of formateur
     private final formateurRepo formRepository;
 
+    //repo of respInv
+    private final respInventaireRepo respInventaireRepo;
+
 
 
     //emailUtil functions
@@ -70,7 +75,7 @@ public class authService {
 
 
 
-    //inscription Apprenant
+    //inscription apprenant
     public AuthenticationResponse registerApprenant(registerRequestApprenant request) {
 
         Apprenant a =new Apprenant();
@@ -129,7 +134,33 @@ public class authService {
         //   return c;
     }
 
+    //inscription respInventaire
+    public AuthenticationResponse registerRespInv(registerRequestRespInventaire request) {
 
+        respInventaire a =new respInventaire();
+        a.setMatricule(request.getMatricule());
+        a.setNom(request.getNom());
+        a.setPrenom(request.getPrenom());
+        a.setEmail(request.getEmail());
+        a.setPassword(passwordEncoder.encode(request.getPassword()));
+        a.setDateN(request.getDateN());
+        a.setTel(request.getTel());
+        a.setAdresse(request.getAdresse());
+        respInventaireRepo.save(a);  //save sans autorisation admin
+
+        var user=User.builder()
+                .firstName(request.getPrenom())
+                .lastName(request.getNom())
+                .email(request.getEmail())
+                .pass(passwordEncoder.encode(request.getPassword()))
+                .role(Role.USER)
+                .build();
+        repository.save(user);
+        //generation of token..
+        var jwtToken= jwtService.generateToken(user);
+        return AuthenticationResponse.builder().token(jwtToken).build();
+        //   return c;
+    }
 
     public AuthenticationResponse authenticate(AuthenticationRequest request) {
 

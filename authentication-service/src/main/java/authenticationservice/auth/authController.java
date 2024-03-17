@@ -13,7 +13,7 @@ import jakarta.mail.MessagingException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
+import authenticationservice.respInventaire.*;
 @RestController
 @RequestMapping("/api/v1/auth")
 @RequiredArgsConstructor
@@ -25,6 +25,8 @@ public class authController {
     private final apprenantServiceImpl apps;
 
     private final formateurServiceImpl fs ;
+
+    private final respInventaireServiceImpl rs ;
 
     //pour admin
     @PostMapping("/register")
@@ -56,6 +58,20 @@ public class authController {
         f=fs.findForByEmail(request.getEmail());
         if (f==null) {
             return ResponseEntity.ok(as.registerFormateur(request));
+        }else {  System.out.println("mail existant");
+            return null; }
+
+        // return ResponseEntity.ok(as.registerFormateur(request));
+        //return as.registerElecteur(request); pour verifier userfilled
+    }
+
+    //register pour formateur
+    @PostMapping("/registerRespInv")
+    public ResponseEntity<AuthenticationResponse> registerRespInv(@RequestBody registerRequestRespInventaire request){
+        respInventaire r=null;
+        r=rs.findRespInvByEmail(request.getEmail());
+        if (r==null) {
+            return ResponseEntity.ok(as.registerRespInv(request));
         }else {  System.out.println("mail existant");
             return null; }
 

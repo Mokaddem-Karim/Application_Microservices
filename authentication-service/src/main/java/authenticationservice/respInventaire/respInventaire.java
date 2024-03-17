@@ -1,16 +1,15 @@
-package authenticationservice.apprenant;
+package authenticationservice.respInventaire;
 
 import jakarta.persistence.*;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
-import java.util.Date;
 
 
 @Entity
 @Table(name="respInventaire")
-public class Apprenant implements UserDetails {
+public class respInventaire implements UserDetails {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -27,11 +26,11 @@ public class Apprenant implements UserDetails {
 
 
 
-    public Apprenant() {
+    public respInventaire() {
     }
 
 
-    public Apprenant(int id, int matricule, String nom, String prenom, String dateN, String adresse, int tel, String email, String password) {
+    public respInventaire(int id, int matricule, String nom, String prenom, String dateN, String adresse, int tel, String email, String password) {
         this.id = id;
         this.matricule = matricule;
         this.nom = nom;
