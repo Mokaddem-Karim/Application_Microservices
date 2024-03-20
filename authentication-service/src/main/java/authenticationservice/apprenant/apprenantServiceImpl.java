@@ -43,7 +43,7 @@ public class apprenantServiceImpl implements apprenantServiceInt {
     @Override
     public Apprenant modifierApp(Apprenant a, int id) {
         return ar.findById(id).map(r -> {
-            r.setMatricule(a.getMatricule());
+            r.setCin(a.getCin());
             r.setNom(a.getNom());
             r.setPrenom(a.getPrenom());
             r.setDateN(a.getDateN());

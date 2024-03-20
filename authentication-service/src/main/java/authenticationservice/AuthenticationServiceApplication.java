@@ -9,12 +9,15 @@ import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.filter.CorsFilter;
 
+import java.time.LocalDate;
+
 @EnableDiscoveryClient
 @SpringBootApplication
 public class AuthenticationServiceApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(AuthenticationServiceApplication.class, args);
+
     }
 
 

@@ -1,5 +1,6 @@
 package com.linsoft.formation;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -8,7 +9,6 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/formation")
-
 public class formationController {
 
 
@@ -24,10 +24,11 @@ public class formationController {
         return fs.ajouterFormation(f);
     }
 
-    @GetMapping("/getApprenantById/{id}")
+    @GetMapping("/getFormation/{id}")
     public Optional<formation> getFormationById(@PathVariable int id){
         return fs.getFormationById(id);
     }
+
 
     @GetMapping("/getAllFormation")
     public List<formation> getAllFormation(){
@@ -44,8 +45,9 @@ public class formationController {
         return fs.modifierFormation(f,id);
     }
 
-
-
-
+    @GetMapping("/checkDisponibilite")
+    public String checkDisponibilite(){
+        return fs.verifDisponibilite();
+    }
 
 }

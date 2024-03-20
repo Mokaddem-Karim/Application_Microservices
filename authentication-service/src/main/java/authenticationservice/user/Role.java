@@ -2,5 +2,7 @@ package authenticationservice.user;
 
 public enum Role {
     USER,
-    ADMIN
+    ADMIN,
+    ResponsableF,
+    ResponsableInv
 }

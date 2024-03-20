@@ -5,28 +5,38 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Data
+import java.util.ArrayList;
+
 @Entity
-@Table(name="formation")
+
 @NoArgsConstructor
+@Data
+@Table(name="formation")
 public class formation {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private String img;
+    private String imgSrc;
     private String lib;
-    private String date;
-    private String chargeHoraire;
+    private String dateD;
+    private String dateF;
+    private String dureeJ;
+    private String type;
     private String lieu;
-    private boolean arriver;
+    private String formateurNP;
+    private boolean disponible; //si formation faite alors disponible sera mis à false
 
-    public formation(int id, String img, String lib, String date, String chargeHoraire, String lieu) {
+    public formation(int id, String imgSrc, String lib, String dateD, String dateF, String dureeJ,String type,String lieu,String formateurNP) {
         this.id = id;
-        this.img = img;
+        this.imgSrc = imgSrc;
         this.lib = lib;
-        this.date = date;
-        this.chargeHoraire = chargeHoraire;
-        this.lieu = lieu;
-        this.arriver=false;
+        this.dateD = dateD;
+        this.dateF = dateF;
+        this.dureeJ = dureeJ;
+        this.type=type;
+        this.lieu=lieu;
+        this.formateurNP=formateurNP;
+        this.disponible=true;
     }
+
 }

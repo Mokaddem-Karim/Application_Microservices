@@ -20,7 +20,7 @@ public class respInventaireController {
     }
 
     @PostMapping("/save")
-    public respInventaire saveApp(@RequestBody respInventaire a){
+    public respInventaire saveRespInv(@RequestBody respInventaire a){
         return rs.ajouterRespInv(a);
     }
 
@@ -35,7 +35,7 @@ public class respInventaireController {
     }
 
     @GetMapping("/getAllRespInv")
-    public List<respInventaire> getAllApp(){
+    public List<respInventaire> getAllRespInv(){
         return rs.getAllRespInv();
     }
 

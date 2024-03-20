@@ -14,6 +14,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import authenticationservice.respInventaire.*;
+import authenticationservice.respFormation.*;
 @RestController
 @RequestMapping("/api/v1/auth")
 @RequiredArgsConstructor
@@ -25,6 +26,8 @@ public class authController {
     private final apprenantServiceImpl apps;
 
     private final formateurServiceImpl fs ;
+
+    private final respFormationServiceImpl rfs ;
 
     private final respInventaireServiceImpl rs ;
 
@@ -66,7 +69,22 @@ public class authController {
         //return as.registerElecteur(request); pour verifier userfilled
     }
 
-    //register pour formateur
+    //register pour responsable formation
+    @PostMapping("/registerRespFor")
+    public ResponseEntity<AuthenticationResponse> registerRespFor(@RequestBody registerRequestRespFormation request){
+        respFormation r=null;
+        r=rfs.findRespForByEmail(request.getEmail());
+        if (r==null) {
+            return ResponseEntity.ok(as.registerRespFor(request));
+        }else {  System.out.println("mail existant");
+            return null; }
+
+        // return ResponseEntity.ok(as.registerFormateur(request));
+        //return as.registerElecteur(request); pour verifier userfilled
+    }
+
+
+    //register pour Responsable Inventaire
     @PostMapping("/registerRespInv")
     public ResponseEntity<AuthenticationResponse> registerRespInv(@RequestBody registerRequestRespInventaire request){
         respInventaire r=null;

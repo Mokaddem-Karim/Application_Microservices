@@ -1,21 +1,20 @@
-package authenticationservice.apprenant;
+package authenticationservice.respFormation;
 
 import jakarta.persistence.*;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
-import java.util.Date;
 
 
 @Entity
-@Table(name="Apprenant")
-public class Apprenant implements UserDetails {
+@Table(name="respFormation")
+public class respFormation implements UserDetails {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private int cin;
+    private int matricule;
     private String nom;
     private String prenom;
     private String dateN;
@@ -27,13 +26,13 @@ public class Apprenant implements UserDetails {
 
 
 
-    public Apprenant() {
+    public respFormation() {
     }
 
 
-    public Apprenant(int id, int cin, String nom, String prenom, String dateN, String adresse, int tel, String email, String password) {
+    public respFormation(int id, int matricule, String nom, String prenom, String dateN, String adresse, int tel, String email, String password) {
         this.id = id;
-        this.cin = cin;
+        this.matricule = matricule;
         this.nom = nom;
         this.prenom = prenom;
         this.dateN = dateN;
@@ -51,12 +50,12 @@ public class Apprenant implements UserDetails {
         this.id = id;
     }
 
-    public int getCin() {
-        return cin;
+    public int getMatricule() {
+        return matricule;
     }
 
-    public void setCin(int cin) {
-        this.cin = cin;
+    public void setMatricule(int matricule) {
+        this.matricule = matricule;
     }
 
     public String getNom() {
@@ -184,9 +183,9 @@ public class Apprenant implements UserDetails {
 
     @Override
     public String toString() {
-        return "apprenant{" +
+        return "respFormation{" +
                 "id=" + id +
-                ", cin=" + cin +
+                ", matricule=" + matricule +
                 ", nom='" + nom + '\'' +
                 ", prenom='" + prenom + '\'' +
                 ", dateN=" + dateN +
