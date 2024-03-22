@@ -5,7 +5,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -18,6 +20,7 @@ public class formationServiceImpl implements formationServiceInt {
 
     @Override
     public formation ajouterFormation(formation f) {
+
         return fr.save(f);
     }
 
@@ -47,6 +50,8 @@ public class formationServiceImpl implements formationServiceInt {
             r.setDureeJ(f.getDureeJ());
             r.setType(f.getType());
             r.setLieu(f.getLieu());
+            r.setFormateurNP(f.getFormateurNP());
+            r.setFormateurMatricule(f.getFormateurMatricule());
             return fr.save(r);
         }).orElseThrow(() -> new RuntimeException("formation inexistante !"));
 
@@ -62,7 +67,8 @@ public class formationServiceImpl implements formationServiceInt {
         ArrayList<formation> lf=new ArrayList<>();
         lf= (ArrayList<formation>) fr.findAll();
         for(int i=0;i<lf.size();i++){
-            if(lf.get(i).getDateF().equals(currentDate)){
+            LocalDate d= LocalDate.parse(lf.get(i).getDateF(), DateTimeFormatter.ISO_DATE);
+            if(d.isAfter(LocalDate.now())){
                 f=lf.get(i);
                 fr.findById(f.getId()).map(r -> {
                     r.setDisponible(false);

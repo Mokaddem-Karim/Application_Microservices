@@ -26,6 +26,10 @@ public class formateurServiceImpl implements formateurServiceInt {
 
     public Formateur findForByEmail(String email){return fr.getFormateurByEmail(email) ;}
 
+    @Override
+    public Optional<Formateur> getForByMatricule(int mat) {
+        return fr.findFormateurByMatricule(mat);
+    }
 
 
     @Override

@@ -63,6 +63,8 @@ public class authService {
     //emailUtil functions
     private final emailUtil eu;
 
+
+    //register of an admin from backend only
     public AuthenticationResponse register(RegisterRequest request) {
 
             var user = User.builder()
@@ -70,7 +72,7 @@ public class authService {
                     .lastName(request.getLastName())
                     .email(request.getEmail())
                     .pass(passwordEncoder.encode(request.getPassword()))
-                    .role(Role.USER)
+                    .role(Role.ADMIN)
                     .build();
             repository.save(user);
             //generation of token..
@@ -139,7 +141,7 @@ public class authService {
         //   return c;
     }
 
-    //inscription respFormation
+    //inscription respFormation et role.respF dés le départ
     public AuthenticationResponse registerRespFor(registerRequestRespFormation request) {
 
         respFormation a =new respFormation();
@@ -158,7 +160,7 @@ public class authService {
                 .lastName(request.getNom())
                 .email(request.getEmail())
                 .pass(passwordEncoder.encode(request.getPassword()))
-                .role(Role.USER)
+                .role(Role.ResponsableF)
                 .build();
         repository.save(user);
         //generation of token..
@@ -185,7 +187,7 @@ public class authService {
                 .lastName(request.getNom())
                 .email(request.getEmail())
                 .pass(passwordEncoder.encode(request.getPassword()))
-                .role(Role.USER)
+                .role(Role.ResponsableInv)
                 .build();
         repository.save(user);
         //generation of token..

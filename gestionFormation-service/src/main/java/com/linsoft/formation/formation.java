@@ -8,8 +8,6 @@ import lombok.NoArgsConstructor;
 import java.util.ArrayList;
 
 @Entity
-
-@NoArgsConstructor
 @Data
 @Table(name="formation")
 public class formation {
@@ -24,9 +22,10 @@ public class formation {
     private String type;
     private String lieu;
     private String formateurNP;
+    private int formateurMatricule ;
     private boolean disponible; //si formation faite alors disponible sera mis à false
 
-    public formation(int id, String imgSrc, String lib, String dateD, String dateF, String dureeJ,String type,String lieu,String formateurNP) {
+    public formation(int id, String imgSrc, String lib, String dateD, String dateF, String dureeJ,String type,String lieu,String formateurNP,int formateurMatricule) {
         this.id = id;
         this.imgSrc = imgSrc;
         this.lib = lib;
@@ -36,7 +35,11 @@ public class formation {
         this.type=type;
         this.lieu=lieu;
         this.formateurNP=formateurNP;
+        this.formateurMatricule=formateurMatricule;
         this.disponible=true;
     }
 
+    public formation() {
+
+    }
 }

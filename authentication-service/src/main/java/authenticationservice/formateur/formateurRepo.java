@@ -8,5 +8,9 @@ public interface formateurRepo extends JpaRepository<Formateur,Integer> {
 
     Optional<Formateur> findOneByEmailAndPassword(String email, String password);
 
+    Optional<Formateur> findFormateurByMatricule(int matricule);
+
+
+
     Formateur getFormateurByEmail(String email);
 }

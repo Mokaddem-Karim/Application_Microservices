@@ -47,5 +47,9 @@ public class formateurController {
     }
 
 
+    @GetMapping("/getForByMat/{matricule}")
+    public Optional<Formateur> getForByMat(@PathVariable int matricule){
+        return fs.getForByMatricule(matricule) ;
+    }
 
 }
