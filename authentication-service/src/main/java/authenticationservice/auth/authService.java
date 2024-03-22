@@ -82,7 +82,7 @@ public class authService {
     }
 
 
-
+    /*
     //inscription apprenant
     public AuthenticationResponse registerApprenant(registerRequestApprenant request) {
 
@@ -110,7 +110,7 @@ public class authService {
         return AuthenticationResponse.builder().token(jwtToken).build();
       //   return c;
     }
-
+   */
 
 
     //inscription formateur

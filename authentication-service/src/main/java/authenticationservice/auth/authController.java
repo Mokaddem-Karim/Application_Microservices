@@ -38,7 +38,7 @@ public class authController {
     }
 
 
-
+       /*
     //register pour apprenant and verify that a apprenant already have an account or not
     @PostMapping("/registerApprenant")
     public ResponseEntity<AuthenticationResponse> registerApprenant(@RequestBody registerRequestApprenant request){
@@ -53,7 +53,7 @@ public class authController {
 
      //return as.registerCandidat(request); pour verifier le candidat filled
     }
-
+*/
 
     //register pour formateur
     @PostMapping("/registerFormateur")

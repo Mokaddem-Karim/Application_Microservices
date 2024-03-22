@@ -13,8 +13,8 @@ public interface apprenantServiceInt {
     public String supprimerApp(int id);
     public Apprenant modifierApp(Apprenant a, int id);
 
-
-    public Apprenant findAppByEmail(String email) ;
+     public Apprenant findAppByCin(int cin);
+   // public Apprenant findAppByEmail(String email) ;
 
 
 }

@@ -1,6 +1,7 @@
 package authenticationservice.apprenant;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -21,19 +22,26 @@ public class apprenantController {
 
     @PostMapping("/save")
     public Apprenant saveApp(@RequestBody Apprenant a){
-        return as.ajouterApprenant(a);
+        Apprenant ap=null;
+        ap=as.findAppByCin(a.getCin());
+        System.out.println("cet apprenant existe: "+ ap);
+        if (ap==null) {
+            return ResponseEntity.ok(as.ajouterApprenant(a)).getBody();
+        }else {  System.out.println("apprenant existant");
+            return null; }
+
     }
 
     @GetMapping("/getApprenantById/{id}")
     public Optional<Apprenant> getAppById(@PathVariable int id){
         return as.getAppById(id);
     }
-
+/*
     @GetMapping("/getAppByEmail/{mail}")
     public Apprenant getAppByEmail(@PathVariable String mail){
         return as.findAppByEmail(mail) ;
     }
-
+*/
     @GetMapping("/getAllApp")
     public List<Apprenant> getAllApp(){
         return as.getAllApprenant();

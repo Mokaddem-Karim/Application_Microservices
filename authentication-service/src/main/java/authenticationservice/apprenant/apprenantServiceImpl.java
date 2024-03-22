@@ -25,7 +25,7 @@ public class apprenantServiceImpl implements apprenantServiceInt {
         return ar.findById(id);
     }
 
-    public Apprenant findAppByEmail(String email){return ar.getApprenantByEmail(email) ;}
+   // public Apprenant findAppByEmail(String email){return ar.getApprenantByEmail(email) ;}
 
 
 
@@ -47,13 +47,17 @@ public class apprenantServiceImpl implements apprenantServiceInt {
             r.setNom(a.getNom());
             r.setPrenom(a.getPrenom());
             r.setDateN(a.getDateN());
-            r.setEmail(a.getEmail());
-            r.setPassword(a.getPassword());
+           // r.setEmail(a.getEmail());
+           // r.setPassword(a.getPassword());
             r.setTel(a.getTel());
             return ar.save(r);
         }).orElseThrow(() -> new RuntimeException("apprenant inexistant !"));
     }
 
+    @Override
+    public Apprenant findAppByCin(int cin) {
+        return ar.getApprenantByCin(cin);
+    }
 
 
 }
