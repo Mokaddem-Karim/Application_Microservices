@@ -57,7 +57,10 @@ public class apprenantController {
         return as.modifierApp(a,id);
     }
 
-
+    @GetMapping("/getAppByCin/{cin}")
+    public Apprenant getAppByCin(@PathVariable int cin){
+        return as.findAppByCin(cin) ;
+    }
 
 
 

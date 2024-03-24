@@ -56,5 +56,10 @@ public class afController {
         return afs.supprimerAF(id);
     }
 
+    @GetMapping("/getAppFRelationByIdAppAndIdF/{idApp}/{idF}")
+    public Optional<apprenantFormation> getAFByIdAAndIdF(@PathVariable int idApp,@PathVariable int idF) {
+
+        return afs.findOneByIdFormationAndIdApprenant(idF,idApp);
+    }
 
 }
