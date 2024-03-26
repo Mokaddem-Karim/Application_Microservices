@@ -19,6 +19,7 @@ public class registerRequestApprenant {
     private String password;
     private String dateN;
     private int tel;
-    private String adresse;
+    private String poste;
+    private String entreprise;
 
 }

@@ -19,7 +19,12 @@ public class Apprenant implements UserDetails {
     private String nom;
     private String prenom;
     private String dateN;
-    private String adresse;
+
+
+
+    private String entreprise ;
+    private String poste;
+
     private int tel;
     private String email;
     private String password;
@@ -31,13 +36,14 @@ public class Apprenant implements UserDetails {
     }
 
 
-    public Apprenant(int id, int cin, String nom, String prenom, String dateN, String adresse, int tel, String email, String password) {
+    public Apprenant(int id, int cin, String nom, String prenom, String dateN, int tel, String email, String password,String poste,String entreprise) {
         this.id = id;
         this.cin = cin;
         this.nom = nom;
         this.prenom = prenom;
         this.dateN = dateN;
-        this.adresse = adresse;
+        this.poste = poste;
+        this.entreprise = entreprise;
         this.tel = tel;
         this.email = email;
         this.password = password;
@@ -83,12 +89,20 @@ public class Apprenant implements UserDetails {
         this.dateN = dateN;
     }
 
-    public String getAdresse() {
-        return adresse;
+    public String getEntreprise() {
+        return entreprise;
     }
 
-    public void setAdresse(String adresse) {
-        this.adresse = adresse;
+    public void setEntreprise(String entreprise) {
+        this.entreprise = entreprise;
+    }
+
+    public String getPoste() {
+        return poste;
+    }
+
+    public void setPoste(String poste) {
+        this.poste = poste;
     }
 
     public int getTel() {
@@ -184,13 +198,14 @@ public class Apprenant implements UserDetails {
 
     @Override
     public String toString() {
-        return "apprenant{" +
+        return "Apprenant{" +
                 "id=" + id +
                 ", cin=" + cin +
                 ", nom='" + nom + '\'' +
                 ", prenom='" + prenom + '\'' +
-                ", dateN=" + dateN +
-                ", adresse='" + adresse + '\'' +
+                ", dateN='" + dateN + '\'' +
+                ", entreprise='" + entreprise + '\'' +
+                ", poste='" + poste + '\'' +
                 ", tel=" + tel +
                 ", email='" + email + '\'' +
                 ", password='" + password + '\'' +

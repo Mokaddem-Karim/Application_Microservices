@@ -94,7 +94,8 @@ public class authService {
         a.setPassword(passwordEncoder.encode(request.getPassword()));
         a.setDateN(request.getDateN());
         a.setTel(request.getTel());
-        a.setAdresse(request.getAdresse());
+        a.setPoste(request.getPoste());
+        a.setEntreprise(request.getEntreprise());
         appRepository.save(a);  //save sans autorisation admin
 
         var user=User.builder()

@@ -50,6 +50,9 @@ public class apprenantServiceImpl implements apprenantServiceInt {
             r.setEmail(a.getEmail());
            r.setPassword(a.getPassword());
             r.setTel(a.getTel());
+            r.setPoste(a.getPoste());
+            r.setEntreprise(a.getEntreprise());
+
             return ar.save(r);
         }).orElseThrow(() -> new RuntimeException("apprenant inexistant !"));
     }
