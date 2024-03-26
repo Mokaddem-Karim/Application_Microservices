@@ -17,6 +17,7 @@ public class gestionFormationServiceApplication {
     }
 
 
+    /*
     // corsConfig
     @Configuration
     public class CorsConfig {
@@ -33,4 +34,7 @@ public class gestionFormationServiceApplication {
             return new CorsFilter(source);
         }
     }
+
+     */
+
 }

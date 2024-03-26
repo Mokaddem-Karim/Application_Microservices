@@ -8,7 +8,7 @@ public interface apprenantRepo extends JpaRepository<Apprenant,Integer> {
 
      //Optional<Apprenant> findOneByEmailAndPassword(String email, String password);
 
-   //  Apprenant getApprenantByEmail(String email);
+     Apprenant getApprenantByEmail(String email);
 
      Apprenant getApprenantByCin(int cin);
 

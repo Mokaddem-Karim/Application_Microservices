@@ -10,6 +10,7 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="api-gateway" />
         <module name="authentication-service" />
         <module name="gestionFormation-service" />
         <module name="eurekaServer" />
@@ -29,6 +30,7 @@
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="MicroServices" options="" />
       <module name="aaa" options="-parameters" />
+      <module name="api-gateway" options="-parameters" />
       <module name="authService" options="-parameters" />
       <module name="authentication-service" options="-parameters" />
       <module name="eurekaServer" options="-parameters" />

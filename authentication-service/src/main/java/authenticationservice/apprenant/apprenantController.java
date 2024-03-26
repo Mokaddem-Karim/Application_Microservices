@@ -36,12 +36,12 @@ public class apprenantController {
     public Optional<Apprenant> getAppById(@PathVariable int id){
         return as.getAppById(id);
     }
-/*
+
     @GetMapping("/getAppByEmail/{mail}")
     public Apprenant getAppByEmail(@PathVariable String mail){
         return as.findAppByEmail(mail) ;
     }
-*/
+
     @GetMapping("/getAllApp")
     public List<Apprenant> getAllApp(){
         return as.getAllApprenant();

@@ -19,6 +19,7 @@
         <module>authentication-service</module>
         <module>eurekaServer</module>
         <module>gestionFormation-service</module>
+        <module>api-gateway</module>
     </modules>
 
     <properties>

@@ -30,6 +30,7 @@ public class emailUtil {
 
     //redirect to localhost:4200/reset pass form and that call reset controller
     public void sendSetPasswordEmail(String email) throws MessagingException {
+
         MimeMessage mimeMessage = javaMailSender.createMimeMessage();
         MimeMessageHelper mimeMessageHelper = new MimeMessageHelper(mimeMessage);
         mimeMessageHelper.setTo(email);
@@ -41,5 +42,6 @@ public class emailUtil {
         """.formatted(email), true);
 
         javaMailSender.send(mimeMessage);
+
     }
 }
