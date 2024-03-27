@@ -36,7 +36,7 @@ public class afController {
         // System.out.println("cet relation existe: "+ appf);
         if (!appf.isPresent()) {
             return ResponseEntity.ok(afs.ajouterAF(af)).getBody();
-        }else {  System.out.println("cet relation existant");
+        }else {  System.out.println("cet relation existante");
             return null; }
     }
 

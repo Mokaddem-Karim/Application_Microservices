@@ -68,7 +68,9 @@ public class formationServiceImpl implements formationServiceInt {
         lf= (ArrayList<formation>) fr.findAll();
         for(int i=0;i<lf.size();i++){
             LocalDate d= LocalDate.parse(lf.get(i).getDateF(), DateTimeFormatter.ISO_DATE);
-            if(d.isAfter(LocalDate.now())){
+           // System.out.println(lf.get(i).getLib()+"--"+"d is after: "+d.isAfter(LocalDate.now()));
+            if(d.isEqual(LocalDate.now())||d.isBefore(LocalDate.now())){
+                System.out.println("yes is became invailable"+lf.get(i).getLib());
                 f=lf.get(i);
                 fr.findById(f.getId()).map(r -> {
                     r.setDisponible(false);
