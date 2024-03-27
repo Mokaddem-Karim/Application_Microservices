@@ -21,11 +21,12 @@ public class formation {
     private String dureeJ;
     private String type;
     private String lieu;
+    private String specialite;
     private String formateurNP;
     private int formateurMatricule ;
     private boolean disponible; //si formation faite alors disponible sera mis à false
 
-    public formation(int id, String imgSrc, String lib, String dateD, String dateF, String dureeJ,String type,String lieu,String formateurNP,int formateurMatricule) {
+    public formation(int id, String imgSrc, String lib, String dateD, String dateF, String dureeJ,String type,String lieu,String formateurNP,int formateurMatricule,String specialite) {
         this.id = id;
         this.imgSrc = imgSrc;
         this.lib = lib;
@@ -36,6 +37,7 @@ public class formation {
         this.lieu=lieu;
         this.formateurNP=formateurNP;
         this.formateurMatricule=formateurMatricule;
+        this.specialite=specialite;
         this.disponible=true;
     }
 

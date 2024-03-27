@@ -16,9 +16,17 @@ public class formateurController {
         this.fs = fsi;
     }
 
+    //test sur NULL to know existance of formateur
     @PostMapping("/save")
     public Formateur saveApp(@RequestBody Formateur f){
-        return fs.ajouterFormateur(f);
+        Optional<Formateur> forr = null;
+        forr=getForByMat(f.getMatricule());
+        if(forr.isEmpty()) {
+            return fs.ajouterFormateur(f);
+        }else {
+            return null;
+        }
+
     }
 
     @GetMapping("/getFormateurById/{id}")
@@ -50,6 +58,11 @@ public class formateurController {
     @GetMapping("/getForByMat/{matricule}")
     public Optional<Formateur> getForByMat(@PathVariable int matricule){
         return fs.getForByMatricule(matricule) ;
+    }
+
+    @GetMapping("/getAllForBySpec/{spec}")
+    public List<Formateur> getForBySpec(@PathVariable String spec){
+        return fs.getForBySpecialite(spec) ;
     }
 
 }

@@ -15,4 +15,7 @@ public interface formateurServiceInt {
     public Formateur findForByEmail(String email) ;
 
     public Optional<Formateur> getForByMatricule(int mat);
+
+    public List<Formateur> getForBySpecialite(String spec);
+
 }

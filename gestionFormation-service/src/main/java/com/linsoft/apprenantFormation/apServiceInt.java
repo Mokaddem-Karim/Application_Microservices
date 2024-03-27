@@ -16,7 +16,7 @@ public interface apServiceInt {
     Optional<apprenantFormation> findOneByIdFormationAndIdApprenant(int idF,int idA);
 
 
-    //  public apprenantFormation modifierAF(apprenantFormation af, int id);
+    //  public specialiteF modifierAF(specialiteF af, int id);
 
 
 

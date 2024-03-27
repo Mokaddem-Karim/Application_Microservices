@@ -31,6 +31,12 @@ public class formateurServiceImpl implements formateurServiceInt {
         return fr.findFormateurByMatricule(mat);
     }
 
+    @Override
+    public List<Formateur> getForBySpecialite(String spec) {
+        return fr.findFormateurBySpecialite(spec);
+    }
+
+
 
     @Override
     public List<Formateur> getAllFormateur() {

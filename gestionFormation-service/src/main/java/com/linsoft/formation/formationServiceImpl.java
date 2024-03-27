@@ -50,6 +50,7 @@ public class formationServiceImpl implements formationServiceInt {
             r.setDureeJ(f.getDureeJ());
             r.setType(f.getType());
             r.setLieu(f.getLieu());
+            r.setSpecialite(f.getSpecialite());
             r.setFormateurNP(f.getFormateurNP());
             r.setFormateurMatricule(f.getFormateurMatricule());
             return fr.save(r);
